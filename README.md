@@ -18,4 +18,5 @@ usage
 
 how to run your docker compose on the cloud depending on your provider.
 
+docker-compose build 
 docker-compose run convert
