@@ -1,12 +1,15 @@
 #!/bin/bash -x 
 
 if [ -f /openrc.sh ] ; then
+  echo 'sourcing openrc.sh'
   . /openrc.sh
 fi 
 
 #BASE=/pub
 OLD=$BASE/in.$INPUT_FORMAT
 NEW=$BASE/out.$OUTPUT_FORMAT
+echo ${SRC} $NAME
+
 #SRC=cc3a6568-a9c9-6666-b340-9f6192421489
 #NAME="My New Compressed Disk Image"
 #DISTRO="centos"
@@ -17,7 +20,7 @@ NEW=$BASE/out.$OUTPUT_FORMAT
 cd $BASE
 
 echo "downloading."
-glance image-download --progress --file $DEST $SRC
+glance image-download --progress --file $OLD $SRC
 echo "downloaded."
 
 ls -lah $DEST

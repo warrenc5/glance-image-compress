@@ -1,8 +1,10 @@
 #need base openstack glance and qemu-img
-#FROM openstack
-FROM osbase
+FROM debian:stable-slim
+USER root
+RUN apt-get update
+RUN apt-get -y install --no-install-recommends qemu-utils python3-openstackclient python3-glanceclient bash 
 ADD compress.sh /
-CMD mkdir /pub
+RUN mkdir /pub
 ENV BASE '/pub'
 ENV DISTRO centos
 ENV COMPAT 1.1
@@ -11,5 +13,6 @@ ENV IMG_ORIG_USER root
 ENV INPUT_FORMAT qcow2
 ENV OUTPUT_FORMAT qcow2
 
-#ENTRYPOINT sh 
-CMD ./compress.sh 
+WORKDIR /
+#ENTRYPOINT /bin/bash
+CMD /bin/bash -x -c ./compress.sh 

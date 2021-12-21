@@ -11,7 +11,7 @@ I couldn't find a way to stream the image through the convertor so you have to w
 it uses a /pub volume which must be big enough to hold the input file and the output file at the same time
 
 it uses compose to mount volumes for output 
-it uses the openstack environment script if mounted at /openrc.sh
+it uses the openstack environment script if mounted at /openrc.sh if it exists
 it is configurable through environment variables
 
 usage 
